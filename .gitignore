@@ -9,6 +9,8 @@ dist
 build.sbt
 test
 data
+.target
+bin
 
 # idea conf files
 
