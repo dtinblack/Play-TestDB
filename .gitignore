@@ -8,6 +8,7 @@ tmp
 dist
 build.sbt
 test
+data
 
 # idea conf files
 
