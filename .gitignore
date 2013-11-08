@@ -6,6 +6,8 @@ target
 tmp
 .history
 dist
+build.sbt
+test
 
 # idea conf files
 
