@@ -1,0 +1,28 @@
+.DS_Store
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+
+# idea conf files
+
+.idea
+*.iml
+*.ipr
+*.iws
+/out
+/.idea_modules
+
+# eclipse conf file
+
+.classpath
+.project
+/RUNNING_PID
+.settings
+.project
+.manager
+.scala_dependencies
+.cache
