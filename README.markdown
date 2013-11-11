@@ -1,6 +1,7 @@
-# Integrating the Play Framework with mongoDB 
+# Integrating the Play Framework with mongoDB
 
-
+Using some examples from the web ( see Thanks below ) to integrate mongoDB into the 
+Play Framework. 
 
 # Software
  
