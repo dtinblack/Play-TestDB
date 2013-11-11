@@ -2,11 +2,14 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import models.Quote
 
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index("The application and developmemnt environment is ready to go."))
+    Ok(views.html.index("Your new application is ready",
+      Quote("The World is everything", "Ludwig Wittgenstein")))
+  
   }
 
 }

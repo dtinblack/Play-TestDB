@@ -9,3 +9,5 @@ Play Framework.
 
 # Thanks
 
+[ ScalaIDE for Eclipse ] ( http://scala-ide.org/docs/tutorials/play/ ) 
+
