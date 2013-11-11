@@ -1,4 +1,4 @@
-# Integrating a mongoDB with the Play Framework 
+# Integrating mongoDB with the Play Framework 
 
 # Software
  
