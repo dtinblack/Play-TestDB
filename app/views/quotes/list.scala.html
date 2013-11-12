@@ -1,0 +1,13 @@
+@(quotes: List[Quote])
+
+@main(Messages("application.name")) {
+
+<dl class="quotes">
+
+ @for(quote <- quotes) {
+    <dt>@quote.text</dt><dd>@quote.author</dd>
+</dl>
+  
+  }
+  
+}  

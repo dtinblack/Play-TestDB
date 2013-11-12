@@ -1,7 +1,7 @@
-@(message: String, quote: models.Quote)
+@(message: String)
 
 @main("Welcome to Play") {
 
-    <p>@quote.text<em> - @quote.author</em></p>
+    @play20.welcome(message)
 
-}
+} 
