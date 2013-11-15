@@ -1,1 +1,10 @@
 application.name = Quotes
+name = Name
+description = Description
+
+quotes.details = Quote: {0}
+
+quotes.form = Quote details
+quotes.new = (new)
+quotes.new.command = New
+

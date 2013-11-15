@@ -1,0 +1,12 @@
+@(quote: Quote)(implicit flash: Flash, lang: Lang)
+
+@main(Messages("Quote.details", quote.text)) {
+  <dl>
+    <dt>@Messages("id"):</dt>
+    <dd>@quote.id</dd>
+    <dt>@Messages("text"):</dt>
+    <dd>@quote.text</dd>
+    <dt>@Messages("author"):</dt>
+    <dd>@quote.author</dd>
+  </dl>
+}

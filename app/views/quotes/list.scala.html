@@ -1,13 +1,19 @@
-@(quotes: List[Quote])
+@(quotes: List[Quote])(implicit flash: Flash, lang: Lang)
 
 @main(Messages("application.name")) {
 
 <dl class="quotes">
 
  @for(quote <- quotes) {
-    <dt>@quote.text</dt><dd>@quote.author</dd>
-</dl>
-  
+    <dt>@quote.text</dt>
+    <dd>@quote.author</dd>
+    </dl>
   }
+  
+  <p>
+   <a href="@controllers.routes.Quotes.newQuote()" class="btn">
+   <i class="icon-plus"></i> 
+   @Messages("quotes.new.command")</a>
+  </p> 
   
 }  

@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)(content: Html)(implicit flash: Flash, lang: Lang) 
 
 <!DOCTYPE html>
 
@@ -18,6 +18,16 @@
         
     </head>
     <body>
+    
+       @if(flash.get("success").isDefined){
+       	  @flash.get("success")
+       }
+    
+       @if(flash.get("error").isDefined){
+       	  @flash.get("error")
+       }
+    
+    
         @content
     </body>
 </html>
