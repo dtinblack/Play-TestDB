@@ -5,6 +5,10 @@
 <html>
     <head>
         <title>@title</title>
+        
+        <!-- Style Sheet that will override TWITTER BOOTSTRAP -->
+        
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
    
         <!-- JAVASCRIPT -->   
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
@@ -27,7 +31,8 @@
        	  @flash.get("error")
        }
     
-    
+      <div class="container">
         @content
+      </div>  
     </body>
 </html>

@@ -8,15 +8,15 @@
     @helper.form(action = routes.Quotes.save()) {
     <fieldset>
 
-￼￼<legend>
-  @Messages("quotes.details", Messages("quotes.new"))
-              </legend>
+￼￼      <legend>
+          @Messages("quotes.details", Messages("quotes.new"))
+      </legend>
               @helper.inputText(quoteForm("id"))
               @helper.inputText(quoteForm("text"))
               @helper.textarea(quoteForm("author"))
-            </fieldset>
-            <p><input type="submit" class="btn primary"
-                value='@Messages("quote.new.submit")'></p>
+    </fieldset>
+    <p><input type="submit" class="btn primary"
+          value='@Messages("quotes.new.submit")'></p>
   } 
 
 }
