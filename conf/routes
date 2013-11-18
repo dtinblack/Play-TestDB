@@ -8,9 +8,7 @@ GET     /                           controllers.Application.index
 # Quotes
 
 GET     /quotes                     controllers.Quotes.list
-POST    /quotes                     controllers.Quotes.save
 GET     /quotes/new                 controllers.Quotes.newQuote
-GET     /quotes/:id                 controllers.Quotes.show(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

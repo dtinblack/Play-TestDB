@@ -17,8 +17,6 @@ object Quote{
   
  def findAll = quotes.toList.sortBy(_.id)
  
- def findById( id: Long) = quotes.find(_.id == id)
- 
  def add( quote: Quote ) {
    
       quotes = quotes + quote

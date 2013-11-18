@@ -13,8 +13,7 @@ object Quotes extends Controller {
   
   private val quoteForm: Form[Quote] = Form(
       mapping(
-        "id" -> longNumber.verifying(
-            "validation.id.duplicate", Quote.findById(_).isEmpty),
+        "id" -> longNumber,
          "text" -> nonEmptyText,
          "author" -> nonEmptyText
          ) (Quote.apply)(Quote.unapply)   
@@ -25,33 +24,8 @@ object Quotes extends Controller {
      val quotes = Quote.findAll
      Ok(views.html.quotes.list(quotes))
   }
-  
-    def show(id: Long) = Action { implicit request =>
     
-    Quote.findById(id).map{ quote => 
-      Ok(views.html.quotes.details(quote))
-     }.getOrElse(NotFound)  
-  }
-  
-  def save = Action { implicit request =>
-    
-     val newQuoteForm = quoteForm.bindFromRequest()
-     
-     newQuoteForm.fold(
-         hasErrors = { form =>
-           Redirect(routes.Quotes.newQuote()) .
-            flashing(Flash(form.data) + 
-                ("error" -> Messages("validation.errors")))   
-         },
-         
-         success = { newQuote => 
-           Quote.add(newQuote)
-           val message = Messages("quotes.new.success", newQuote.text)
-           Redirect(routes.Quotes.show(newQuote.id)) .
-            flashing("success" -> message)                    
-         }
-      )   
-  }
+
   
   def newQuote = Action { implicit request =>
    
