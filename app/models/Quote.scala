@@ -23,6 +23,8 @@ object Quote{
    
       quotes = quotes + quote
    }
+ 
+ def howMany = quotes.size
    
 }
 

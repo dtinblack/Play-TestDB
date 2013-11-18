@@ -1,15 +1,16 @@
 @(quotes: List[Quote])(implicit flash: Flash, lang: Lang)
 
 @main(Messages("application.name")) {
+	
+<h1>Tricking Format until I can sort out</h1>
 
 <dl class="quotes">
-
  @for(quote <- quotes) {
     <dt>@quote.text</dt>
-    <dd>@quote.author</dd>
-    </dl>
-  }
-  
+    <dd>@quote.author</dd> 
+  }  
+</dl>
+ 
   <p>
    <a href="@controllers.routes.Quotes.newQuote()" class="btn">
    <i class="icon-plus"></i> 

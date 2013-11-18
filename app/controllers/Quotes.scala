@@ -59,9 +59,10 @@ object Quotes extends Controller {
           quoteForm.bind(flash.data)
      else
           quoteForm
+
        
        Ok(views.html.quotes.editQuote(form))
-    
+         
   }
   
 }
