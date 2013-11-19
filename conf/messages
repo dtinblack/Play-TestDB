@@ -10,6 +10,7 @@ quotes.new.command = New
 
 quotes.new.submit = Add
 quotes.new.success = Successfully added quote {0}.
+quotes.new.failure = Quote already in the database
 validation.errors = Please correct the errors in the form.
 validation.id.duplicate = The quote already exists
 

@@ -53,12 +53,38 @@ object Quotes extends Controller {
       },
               
       /* if validation a success then save and redirect back to the List Page */
-      
-      success = { newQuote => 
+            
+      success = { newQuote =>
+        
+        if(Quote.checkQuote(newQuote))
+         { 
+         /* database contains the quote */ 
+         val message = Messages("quotes.new.failure")
+         Redirect(routes.Quotes.newQuote()) .
+           flashing("error" -> message)
+
+         }      
+        else
+        { 
+         /* database doesn't contain the quote */ 
+          
+        Quote.add(newQuote)
+        val message = Messages("quotes.new.success")
+        Redirect(routes.Quotes.list()) .
+        flashing("success" -> message)
+        
+        } 
+
+        
+/*        
           Quote.add( newQuote )
           val message = Messages("quotes.new.success")
           Redirect(routes.Quotes.list()) .
-          flashing("success" -> message)        
+          flashing("success" -> message) 
+          * 
+          */  
+ 
+         
   
        }    
             
