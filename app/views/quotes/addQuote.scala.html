@@ -1,0 +1,23 @@
+@(quoteForm: Form[Quote])(implicit flash: Flash, lang: Lang)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Messages("quotes.form")) {
+  <h2>@Messages("quotes.form")</h2>
+  
+  @helper.form(action = routes.Quotes.save()) {
+  
+  <fieldset>
+    <legend>
+      @Messages("quotes.details",Messages("quotes.new"))
+    </legend>
+    @helper.textarea(quoteForm("text"))
+    @helper.inputText(quoteForm("author"))
+   </fieldset>
+  
+  <p><input type="submit" class="btn primary"
+      value='@Messages("quotes.new.submit")'></p>
+
+   }
+}

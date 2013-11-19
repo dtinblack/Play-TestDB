@@ -8,6 +8,7 @@ GET     /                           controllers.Application.index
 # Quotes
 
 GET     /quotes                     controllers.Quotes.list
+POST    /quotes                     controllers.Quotes.save
 GET     /quotes/new                 controllers.Quotes.newQuote
 
 # Map static resources from the /public folder to the /assets URL path

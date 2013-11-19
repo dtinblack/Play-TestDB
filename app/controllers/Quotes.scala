@@ -11,9 +11,10 @@ import play.api.mvc.Flash
 
 object Quotes extends Controller {
   
+ /* TODO - Checking that new quote doesn't already exist */ 
+  
   private val quoteForm: Form[Quote] = Form(
       mapping(
-        "id" -> longNumber,
          "text" -> nonEmptyText,
          "author" -> nonEmptyText
          ) (Quote.apply)(Quote.unapply)   
@@ -25,7 +26,6 @@ object Quotes extends Controller {
      Ok(views.html.quotes.list(quotes))
   }
     
-
   
   def newQuote = Action { implicit request =>
    
@@ -34,9 +34,35 @@ object Quotes extends Controller {
      else
           quoteForm
 
-       
-       Ok(views.html.quotes.editQuote(form))
+      Ok(views.html.quotes.addQuote(form))
          
   }
   
+  def save = Action{ implicit request => 
+      val newQuoteForm = quoteForm.bindFromRequest()
+            
+      newQuoteForm.fold( 
+        
+      /* if validation fails, redirect back to Add Page */  
+          
+      hasErrors = { form => 
+            Redirect(routes.Quotes.newQuote()) .
+            flashing(Flash(form.data) +
+               ("error" -> Messages("validation.errors"))    
+            )            
+      },
+              
+      /* if validation a success then save and redirect back to the List Page */
+      
+      success = { newQuote => 
+          Quote.add( newQuote )
+          val message = Messages("quotes.new.success")
+          Redirect(routes.Quotes.list()) .
+          flashing("success" -> message)        
+  
+       }    
+            
+      )  
+  }
+    
 }

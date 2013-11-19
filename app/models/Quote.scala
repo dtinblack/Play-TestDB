@@ -1,21 +1,23 @@
 package models
 
-case class Quote (id: Long, text: String, author: String)
+case class Quote (text: String, author: String)
 
 object Quote{
   
   
  var quotes = Set (
       
-   Quote(1, "The world is everything",
+   Quote("The world is everything",
     "Ludwig Wittgenstien"),
-   Quote(2, "Tomorrow is another day",
+   Quote("Tomorrow is another day",
     "Scarlet O'Hara"),
-   Quote(3, "It never rains but it pours", "Annonymous")
+   Quote("It never rains but it pours", "Annonymous")
      
   )
   
- def findAll = quotes.toList.sortBy(_.id)
+ def findAll = quotes.toList.sortBy(_.text)
+ 
+ def checkQuote( quote: Quote ) = quotes.contains(quote)
  
  def add( quote: Quote ) {
    
