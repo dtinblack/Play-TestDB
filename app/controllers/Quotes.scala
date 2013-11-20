@@ -56,6 +56,8 @@ object Quotes extends Controller {
             
       success = { newQuote =>
         
+ /*       
+        
         if(Quote.checkQuote(newQuote))
          { 
          /* database contains the quote */ 
@@ -73,16 +75,17 @@ object Quotes extends Controller {
         Redirect(routes.Quotes.list()) .
         flashing("success" -> message)
         
-        } 
+        }
+        
+*/ 
 
         
-/*        
+       
           Quote.add( newQuote )
           val message = Messages("quotes.new.success")
           Redirect(routes.Quotes.list()) .
           flashing("success" -> message) 
-          * 
-          */  
+
  
          
   
