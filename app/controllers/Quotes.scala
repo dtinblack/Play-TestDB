@@ -56,39 +56,12 @@ object Quotes extends Controller {
             
       success = { newQuote =>
         
- /*       
+// TODO Add logic to manage a duplicate quote
         
-        if(Quote.checkQuote(newQuote))
-         { 
-         /* database contains the quote */ 
-         val message = Messages("quotes.new.failure")
-         Redirect(routes.Quotes.newQuote()) .
-           flashing("error" -> message)
-
-         }      
-        else
-        { 
-         /* database doesn't contain the quote */ 
-          
-        Quote.add(newQuote)
-        val message = Messages("quotes.new.success")
-        Redirect(routes.Quotes.list()) .
-        flashing("success" -> message)
-        
-        }
-        
-*/ 
-
-        
-       
           Quote.add( newQuote )
           val message = Messages("quotes.new.success")
           Redirect(routes.Quotes.list()) .
-          flashing("success" -> message) 
-
- 
-         
-  
+          flashing("success" -> message)  
        }    
             
       )  
