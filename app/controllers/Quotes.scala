@@ -1,10 +1,10 @@
 package controllers
 
 import play.api.mvc.{Action, Controller}
-import models.Quote
+import models._
 
 import play.api.data.Form
-import play.api.data.Forms.{mapping, longNumber, nonEmptyText}
+import play.api.data.Forms.{mapping, number, nonEmptyText}
 import play.api.i18n.Messages
 
 import play.api.mvc.Flash
@@ -22,7 +22,7 @@ object Quotes extends Controller {
   
   
   def list = Action { implicit request => 
-     val quotes = Quote.findAll
+     val quotes = QuoteDAO.findAll
      Ok(views.html.quotes.list(quotes))
   }
     
@@ -58,7 +58,7 @@ object Quotes extends Controller {
         
 // TODO Add logic to manage a duplicate quote
         
-          Quote.add( newQuote )
+          QuoteDAO.add( newQuote )
           val message = Messages("quotes.new.success")
           Redirect(routes.Quotes.list()) .
           flashing("success" -> message)  
