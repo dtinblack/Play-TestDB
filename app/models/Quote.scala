@@ -38,8 +38,8 @@ object Quote{
    
    quotes +=grater[Quote].asDBObject(quote)
    
-// TODO Check if a quote already exists   
-   
+// TODO Check if a quote already exists 
+      
  } 
  
    
