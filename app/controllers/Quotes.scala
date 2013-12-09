@@ -57,6 +57,7 @@ object Quotes extends Controller {
         if(QuoteDAO.checkQuote(newQuote))
          {
          /* database contains the quote */
+         
          val message = Messages("quotes.new.failure")
          Redirect(routes.Quotes.newQuote()) .
            flashing("error" -> message)
