@@ -10,9 +10,7 @@ import play.api.i18n.Messages
 import play.api.mvc.Flash
 
 object Quotes extends Controller {
-  
- /* TODO - Checking that new quote doesn't already exist */ 
-  
+    
   private val quoteForm: Form[Quote] = Form(
       mapping(
          "text" -> nonEmptyText,
@@ -55,13 +53,26 @@ object Quotes extends Controller {
       /* if validation a success then save and redirect back to the List Page */
             
       success = { newQuote =>
-        
-// TODO Add logic to manage a duplicate quote
-        
-          QuoteDAO.add( newQuote )
-          val message = Messages("quotes.new.success")
-          Redirect(routes.Quotes.list()) .
-          flashing("success" -> message)  
+                
+        if(QuoteDAO.checkQuote(newQuote))
+         {
+         /* database contains the quote */
+         val message = Messages("quotes.new.failure")
+         Redirect(routes.Quotes.newQuote()) .
+           flashing("error" -> message)
+
+         }     
+        else
+        {
+         /* database doesn't contain the quote */
+         
+        QuoteDAO.add(newQuote)
+        val message = Messages("quotes.new.success")
+        Redirect(routes.Quotes.list()) .
+        flashing("success" -> message)
+       
+        }
+
        }    
             
       )  
