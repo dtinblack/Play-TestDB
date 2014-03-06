@@ -9,6 +9,21 @@ Using some examples from the web ( see Thanks below ) to integrate [MongoDB] ( h
 * Play Framework : v0.13.0
 * MongoDB: v2.4.7 
 
+# Installing and Running
+
+After installing from GitHub:
+
+    play clean-all 
+    play compile
+
+To run:
+
+    play run  
+
+and start the database:
+
+    mongod -dbpath /<Folder Name>/data
+
 # Thanks
 
 To the Team behind [ ScalaIDE for Eclipse ] ( http://scala-ide.org/docs/tutorials/play/ ), 

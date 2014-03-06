@@ -4,12 +4,12 @@ import play.Project._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "todoPlay"
+  val appName         = "TestDBPlay"
   val appVersion      = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(
     "com.github.twitter" % "bootstrap" % "2.0.2",
-    "com.novus" %% "salat" % "1.9.5-SNAPSHOT",
+    "com.novus" %% "salat" % "1.9.6-SNAPSHOT",
     jdbc,
     anorm
   )
